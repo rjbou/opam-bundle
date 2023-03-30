@@ -271,9 +271,9 @@ Running opam-bundle with sanitized output that contains remplaced platform speci
   bar-bundle/bootstrap.sh
   bar-bundle/opam-full-2.1.0-rc2.tar.gz
   bar-bundle/compile.sh
-  $ sh ./bar-bundle/compile.sh
-  This bundle will compile the application to $TESTCASE_ROOT/bar-bundle, WITHOUT installing
-  wrappers anywhere else.
+  $ sh ./bar-bundle/compile.sh ../BAR
+  This bundle will compile the application to $TESTCASE_ROOT/bar-bundle, and put wrappers into
+  ../BAR/bin. You will need to retain $TESTCASE_ROOT/bar-bundle for the wrappers to work.
   
   Press enter to continue... 
   ================ Bootstrap: checking for prerequisites         ================
@@ -306,17 +306,14 @@ Running opam-bundle with sanitized output that contains remplaced platform speci
   Output is in $TESTCASE_ROOT/bar-bundle/compile.log
   Compiling packages... done
   Cleaning up... done
-  
-  All compiled within $TESTCASE_ROOT/bar-bundle. To use the compiled packages:
-  
-    - either re-run ./bar-bundle/compile.sh with a PREFIX argument to install command wrappers
-      (it won't recompile everything)
-  
-    - or run the following to update the environment in the current shell, so that
-      they are in your PATH:
-        export PATH="$TESTCASE_ROOT/bar-bundle/bootstrap/bin:$PATH"; eval $(opam env --root "$TESTCASE_ROOT/bar-bundle/opam" --set-root)
-  
+  Wrapper bar installed successfully.
   $ opam exec --root ./bar-bundle/opam -- bar
   I'm launching bar !
   $ opam exec --root ./bar-bundle/opam -- foo
   I'm launching foo !
+  $ find BAR
+  BAR
+  BAR/bin
+  BAR/bin/bar
+  $ BAR/bin/bar
+  I'm launching bar !
