@@ -141,31 +141,31 @@ Running opam-bundle with sanitized output that contains remplaced platform speci
   
   <><> Building bundle ><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
   Done. Bundle generated as $TESTCASE_ROOT/foo-bundle.tar.gz
-  $ tar xvf foo-bundle.tar.gz | grep -v sha256
+  $ tar xvf foo-bundle.tar.gz | grep -v sha256 | sort
   foo-bundle/
+  foo-bundle/bootstrap.sh
   foo-bundle/common.sh
+  foo-bundle/compile.sh
+  foo-bundle/configure.sh
+  foo-bundle/opam-full-2.1.0-rc2.tar.gz
   foo-bundle/repo/
+  foo-bundle/repo/archives/
+  foo-bundle/repo/archives/foo.1/
+  foo-bundle/repo/archives/foo.1/compile.tgz
+  foo-bundle/repo/archives/ocaml-base-compiler.4.14.0/
+  foo-bundle/repo/archives/ocaml-base-compiler.4.14.0/ocaml.tgz
+  foo-bundle/repo/cache/
   foo-bundle/repo/packages/
+  foo-bundle/repo/packages/foo/
+  foo-bundle/repo/packages/foo/foo.1/
+  foo-bundle/repo/packages/foo/foo.1/opam
   foo-bundle/repo/packages/ocaml-base-compiler/
   foo-bundle/repo/packages/ocaml-base-compiler/ocaml-base-compiler.4.14.0/
   foo-bundle/repo/packages/ocaml-base-compiler/ocaml-base-compiler.4.14.0/opam
   foo-bundle/repo/packages/ocaml-bootstrap/
   foo-bundle/repo/packages/ocaml-bootstrap/ocaml-bootstrap.4.14.0/
   foo-bundle/repo/packages/ocaml-bootstrap/ocaml-bootstrap.4.14.0/opam
-  foo-bundle/repo/packages/foo/
-  foo-bundle/repo/packages/foo/foo.1/
-  foo-bundle/repo/packages/foo/foo.1/opam
-  foo-bundle/repo/archives/
-  foo-bundle/repo/archives/foo.1/
-  foo-bundle/repo/archives/foo.1/compile.tgz
-  foo-bundle/repo/archives/ocaml-base-compiler.4.14.0/
-  foo-bundle/repo/archives/ocaml-base-compiler.4.14.0/ocaml.tgz
   foo-bundle/repo/repo
-  foo-bundle/repo/cache/
-  foo-bundle/configure.sh
-  foo-bundle/bootstrap.sh
-  foo-bundle/opam-full-2.1.0-rc2.tar.gz
-  foo-bundle/compile.sh
   $ sh ./foo-bundle/compile.sh
   This bundle will compile the application to $TESTCASE_ROOT/foo-bundle, WITHOUT installing
   wrappers anywhere else.
@@ -241,23 +241,14 @@ Running opam-bundle with sanitized output that contains remplaced platform speci
   
   <><> Building bundle ><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
   Done. Bundle generated as $TESTCASE_ROOT/bar-bundle.tar.gz
-  $ tar xvf bar-bundle.tar.gz | grep -v sha256
+  $ tar xvf bar-bundle.tar.gz | grep -v sha256 | sort
   bar-bundle/
+  bar-bundle/bootstrap.sh
   bar-bundle/common.sh
+  bar-bundle/compile.sh
+  bar-bundle/configure.sh
+  bar-bundle/opam-full-2.1.0-rc2.tar.gz
   bar-bundle/repo/
-  bar-bundle/repo/packages/
-  bar-bundle/repo/packages/ocaml-base-compiler/
-  bar-bundle/repo/packages/ocaml-base-compiler/ocaml-base-compiler.4.14.0/
-  bar-bundle/repo/packages/ocaml-base-compiler/ocaml-base-compiler.4.14.0/opam
-  bar-bundle/repo/packages/ocaml-bootstrap/
-  bar-bundle/repo/packages/ocaml-bootstrap/ocaml-bootstrap.4.14.0/
-  bar-bundle/repo/packages/ocaml-bootstrap/ocaml-bootstrap.4.14.0/opam
-  bar-bundle/repo/packages/foo/
-  bar-bundle/repo/packages/foo/foo.1/
-  bar-bundle/repo/packages/foo/foo.1/opam
-  bar-bundle/repo/packages/bar/
-  bar-bundle/repo/packages/bar/bar.1/
-  bar-bundle/repo/packages/bar/bar.1/opam
   bar-bundle/repo/archives/
   bar-bundle/repo/archives/bar.1/
   bar-bundle/repo/archives/bar.1/compile.tgz
@@ -265,12 +256,21 @@ Running opam-bundle with sanitized output that contains remplaced platform speci
   bar-bundle/repo/archives/foo.1/compile.tgz
   bar-bundle/repo/archives/ocaml-base-compiler.4.14.0/
   bar-bundle/repo/archives/ocaml-base-compiler.4.14.0/ocaml.tgz
-  bar-bundle/repo/repo
   bar-bundle/repo/cache/
-  bar-bundle/configure.sh
-  bar-bundle/bootstrap.sh
-  bar-bundle/opam-full-2.1.0-rc2.tar.gz
-  bar-bundle/compile.sh
+  bar-bundle/repo/packages/
+  bar-bundle/repo/packages/bar/
+  bar-bundle/repo/packages/bar/bar.1/
+  bar-bundle/repo/packages/bar/bar.1/opam
+  bar-bundle/repo/packages/foo/
+  bar-bundle/repo/packages/foo/foo.1/
+  bar-bundle/repo/packages/foo/foo.1/opam
+  bar-bundle/repo/packages/ocaml-base-compiler/
+  bar-bundle/repo/packages/ocaml-base-compiler/ocaml-base-compiler.4.14.0/
+  bar-bundle/repo/packages/ocaml-base-compiler/ocaml-base-compiler.4.14.0/opam
+  bar-bundle/repo/packages/ocaml-bootstrap/
+  bar-bundle/repo/packages/ocaml-bootstrap/ocaml-bootstrap.4.14.0/
+  bar-bundle/repo/packages/ocaml-bootstrap/ocaml-bootstrap.4.14.0/opam
+  bar-bundle/repo/repo
   $ sh ./bar-bundle/compile.sh ../BAR
   This bundle will compile the application to $TESTCASE_ROOT/bar-bundle, and put wrappers into
   ../BAR/bin. You will need to retain $TESTCASE_ROOT/bar-bundle for the wrappers to work.
