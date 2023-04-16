@@ -164,7 +164,7 @@ Bundle single package `foo`.
   foo-bundle/common.sh
   foo-bundle/compile.sh
   foo-bundle/configure.sh
-  foo-bundle/opam-full-2.1.0-rc2.tar.gz
+  foo-bundle/opam-full-2.1.4.tar.gz
   foo-bundle/repo/
   foo-bundle/repo/archives/
   foo-bundle/repo/archives/foo.1/
@@ -270,7 +270,7 @@ Bundle package `bar` that depends on `foo`.
   bar-bundle/common.sh
   bar-bundle/compile.sh
   bar-bundle/configure.sh
-  bar-bundle/opam-full-2.1.0-rc2.tar.gz
+  bar-bundle/opam-full-2.1.4.tar.gz
   bar-bundle/repo/
   bar-bundle/repo/archives/
   bar-bundle/repo/archives/bar.1/
