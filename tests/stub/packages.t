@@ -297,6 +297,7 @@ Bundle single package `bar` of version 2. That implies installation of its depen
   bar-bundle/compile.sh
   bar-bundle/configure.sh
   bar-bundle/opam-full-2.1.0-rc2.tar.gz
+  bar-bundle/patches/
   bar-bundle/repo/
   bar-bundle/repo/archives/
   bar-bundle/repo/archives/bar.2/
@@ -328,6 +329,7 @@ Bundle single package `bar` of version 2. That implies installation of its depen
   bar-bundle/repo/packages/ocaml/ocaml.4.14.0/
   bar-bundle/repo/packages/ocaml/ocaml.4.14.0/opam
   bar-bundle/repo/repo
+  bar-bundle/uncompress.sh
 
   $ sh ./bar-bundle/compile.sh ../BAR
   This bundle will compile the application to $TESTCASE_ROOT/bar-bundle, and put wrappers into
@@ -423,6 +425,7 @@ Since `foo` was specified as argument to `opam-bundle` it installs additionally 
   bar-bundle/compile.sh
   bar-bundle/configure.sh
   bar-bundle/opam-full-2.1.0-rc2.tar.gz
+  bar-bundle/patches/
   bar-bundle/repo/
   bar-bundle/repo/archives/
   bar-bundle/repo/archives/bar.3/
@@ -456,6 +459,7 @@ Since `foo` was specified as argument to `opam-bundle` it installs additionally 
   bar-bundle/repo/packages/ocaml/ocaml.4.14.0/
   bar-bundle/repo/packages/ocaml/ocaml.4.14.0/opam
   bar-bundle/repo/repo
+  bar-bundle/uncompress.sh
 
   $ sh ./bar-bundle/compile.sh ../BAR
   This bundle will compile the application to $TESTCASE_ROOT/bar-bundle, and put wrappers into

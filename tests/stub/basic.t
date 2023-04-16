@@ -165,6 +165,7 @@ Bundle single package `foo`.
   foo-bundle/compile.sh
   foo-bundle/configure.sh
   foo-bundle/opam-full-2.1.0-rc2.tar.gz
+  foo-bundle/patches/
   foo-bundle/repo/
   foo-bundle/repo/archives/
   foo-bundle/repo/archives/foo.1/
@@ -183,6 +184,7 @@ Bundle single package `foo`.
   foo-bundle/repo/packages/ocaml-bootstrap/ocaml-bootstrap.4.14.0/
   foo-bundle/repo/packages/ocaml-bootstrap/ocaml-bootstrap.4.14.0/opam
   foo-bundle/repo/repo
+  foo-bundle/uncompress.sh
   $ sh ./foo-bundle/compile.sh
   This bundle will compile the application to $TESTCASE_ROOT/foo-bundle, WITHOUT installing
   wrappers anywhere else.
@@ -271,6 +273,7 @@ Bundle package `bar` that depends on `foo`.
   bar-bundle/compile.sh
   bar-bundle/configure.sh
   bar-bundle/opam-full-2.1.0-rc2.tar.gz
+  bar-bundle/patches/
   bar-bundle/repo/
   bar-bundle/repo/archives/
   bar-bundle/repo/archives/bar.1/
@@ -294,6 +297,7 @@ Bundle package `bar` that depends on `foo`.
   bar-bundle/repo/packages/ocaml-bootstrap/ocaml-bootstrap.4.14.0/
   bar-bundle/repo/packages/ocaml-bootstrap/ocaml-bootstrap.4.14.0/opam
   bar-bundle/repo/repo
+  bar-bundle/uncompress.sh
   $ sh ./bar-bundle/compile.sh ../BAR
   This bundle will compile the application to $TESTCASE_ROOT/bar-bundle, and put wrappers into
   ../BAR/bin. You will need to retain $TESTCASE_ROOT/bar-bundle for the wrappers to work.

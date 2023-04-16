@@ -197,6 +197,7 @@ are available on linux os (`foo` not included).
   baz-bundle/compile.sh
   baz-bundle/configure.sh
   baz-bundle/opam-full-2.1.0-rc2.tar.gz
+  baz-bundle/patches/
   baz-bundle/repo/
   baz-bundle/repo/archives/
   baz-bundle/repo/archives/bar.1/
@@ -228,6 +229,7 @@ are available on linux os (`foo` not included).
   baz-bundle/repo/packages/ocaml/ocaml.4.14.0/
   baz-bundle/repo/packages/ocaml/ocaml.4.14.0/opam
   baz-bundle/repo/repo
+  baz-bundle/uncompress.sh
 
 Cleaning up
   $ rm baz-bundle.tar.gz
@@ -272,6 +274,7 @@ are available on cygwin os (`bar` not included).
   baz-bundle/compile.sh
   baz-bundle/configure.sh
   baz-bundle/opam-full-2.1.0-rc2.tar.gz
+  baz-bundle/patches/
   baz-bundle/repo/
   baz-bundle/repo/archives/
   baz-bundle/repo/archives/baz.1/
@@ -303,6 +306,7 @@ are available on cygwin os (`bar` not included).
   baz-bundle/repo/packages/ocaml/ocaml.4.14.0/
   baz-bundle/repo/packages/ocaml/ocaml.4.14.0/opam
   baz-bundle/repo/repo
+  baz-bundle/uncompress.sh
 
 Cleaning up
   $ rm baz-bundle.tar.gz
@@ -346,6 +350,7 @@ all dependencies.
   baz-bundle/compile.sh
   baz-bundle/configure.sh
   baz-bundle/opam-full-2.1.0-rc2.tar.gz
+  baz-bundle/patches/
   baz-bundle/repo/
   baz-bundle/repo/archives/
   baz-bundle/repo/archives/baz.1/
@@ -372,6 +377,7 @@ all dependencies.
   baz-bundle/repo/packages/ocaml/ocaml.4.14.0/
   baz-bundle/repo/packages/ocaml/ocaml.4.14.0/opam
   baz-bundle/repo/repo
+  baz-bundle/uncompress.sh
 
 Cleaning up
   $ rm baz-bundle.tar.gz
