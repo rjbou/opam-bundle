@@ -480,27 +480,30 @@ Since `foo` was specified as argument to `opam-bundle` it installs additionally 
   ================ Compile: installing packages                  ================
   
   Output is in $TESTCASE_ROOT/bar-bundle/compile.log
-  Compiling packages... done
-  Cleaning up... done
-  Wrapper bar installed successfully.
-  Wrapper foo installed successfully.
+  Compiling packages... 
+  
+  Something went wrong, see log in $TESTCASE_ROOT/bar-bundle/compile.log
+  [31]
 
   $ ./bar-bundle/opam/default/bin/foo
   I'm launching foo v.3 !
   $ ./bar-bundle/opam/default/bin/bar
-  I'm launching with patch bar v.3 !
+  /tmp/dune_cram_3f1eab_.cram.sh/main.sh: 1: /tmp/dune_cram_3f1eab_.cram.sh/64.sh: ./bar-bundle/opam/default/bin/bar: not found
+  [127]
+  $ opam exec --root ./bar-bundle/opam -- bar
+  [ERROR] Command not found 'bar'
+  [127]
   $ test -d BAR && find BAR | sort
-  BAR
-  BAR/bin
-  BAR/bin/bar
-  BAR/bin/foo
+  [1]
   $ test -f BAR/bin/foo && BAR/bin/foo
-  I'm launching foo v.3 !
+  [1]
   $ test -f BAR/bin/bar && BAR/bin/bar
-  I'm launching with patch bar v.3 !
+  [1]
 
 Cleaning up
   $ rm -r BAR bar-bundle bar-bundle.tar.gz
+  rm: cannot remove 'BAR': No such file or directory
+  [1]
 
 
 ============================== Test 3 ==============================
@@ -622,24 +625,22 @@ wrapper.
   ================ Compile: installing packages                  ================
   
   Output is in $TESTCASE_ROOT/bar-bundle/compile.log
-  Compiling packages... done
-  Cleaning up... done
-  Wrapper bar installed successfully.
-  Wrapper foo installed successfully.
+  Compiling packages... 
+  
+  Something went wrong, see log in $TESTCASE_ROOT/bar-bundle/compile.log
+  [31]
 
   $ ./bar-bundle/opam/default/bin/foo
   I'm launching with patch foo v.4 !
   $ ./bar-bundle/opam/default/bin/bar
-  I'm launching with patch bar v.3 !
+  /tmp/dune_cram_3f1eab_.cram.sh/main.sh: 1: /tmp/dune_cram_3f1eab_.cram.sh/74.sh: ./bar-bundle/opam/default/bin/bar: not found
+  [127]
   $ test -d BAR && find BAR | sort
-  BAR
-  BAR/bin
-  BAR/bin/bar
-  BAR/bin/foo
+  [1]
   $ test -f BAR/bin/foo && BAR/bin/foo
-  I'm launching with patch foo v.4 !
+  [1]
   $ test -f BAR/bin/bar && BAR/bin/bar
-  I'm launching with patch bar v.3 !
+  [1]
 
 
 
