@@ -17,11 +17,11 @@ This test verify bundling of real package `opam-ed.0.1` (old version) with compi
     - os-family = $OSFAMILLY
   
   <><> Initialising repositories ><><><><><><><><><><><><><><><><><><><><><><><><>
-  [github.com] Initialised
   [github.com1] Initialised
   github.com1 (at git+https://github.com/ocaml/opam-repository#c9af4994e07b4a3a2c4b3c5442aabe63dd5d0381): 
       [INFO] opam 2.1 and 2.2 include many performance and security improvements over 2.0; please consider upgrading (https://opam.ocaml.org/doc/Install.html)
   
+  [github.com] Initialised
   
   <><> Resolving package set ><><><><><><><><><><><><><><><><><><><><><><><><><><>
   The following packages will be included:
