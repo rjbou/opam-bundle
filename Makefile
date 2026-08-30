@@ -2,7 +2,7 @@ all: build
 
 build:
 	dune build
-	cp _build/install/default/bin/opam-bundle .
+	ln -vfs _build/install/default/bin/opam-bundle .
 
 stub-tests:
 	dune build @runtest tests/stub
