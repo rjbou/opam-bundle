@@ -182,6 +182,7 @@ Bar packages.
   > -echo "I'm launching \$(basename \${0}) v.3 \$@!"
   > +echo "I'm launching with patch \$(basename \${0}) v.3 \$@!"
   > EOF
+  $ PATCH_MD5=`openssl md5 REPO/packages/bar/bar.3/files/test.patch | cut -d ' ' -f 2`
   $ cat > REPO/packages/bar/bar.3/opam << EOF
   > opam-version: "2.0"
   > version: "3"
@@ -198,6 +199,9 @@ Bar packages.
   >  src: "file://./compile3.tar.gz"
   >  checksum: "sha256=$SHA3"
   > }
+  > extra-files: [
+  >  ["test.patch" "md5=$PATCH_MD5"]
+  > ]
   > EOF
 Ocaml-system.4.14.0 package.
   $ mkdir -p REPO/packages/ocaml-system/ocaml-system.4.14.0
@@ -480,30 +484,29 @@ Since `foo` was specified as argument to `opam-bundle` it installs additionally 
   ================ Compile: installing packages                  ================
   
   Output is in $TESTCASE_ROOT/bar-bundle/compile.log
-  Compiling packages... 
-  
-  Something went wrong, see log in $TESTCASE_ROOT/bar-bundle/compile.log
-  [31]
+  Compiling packages... done
+  Cleaning up... done
+  Wrapper bar installed successfully.
+  Wrapper foo installed successfully.
 
   $ ./bar-bundle/opam/default/bin/foo
   I'm launching foo v.3 !
   $ ./bar-bundle/opam/default/bin/bar
-  /tmp/dune_cram_3f1eab_.cram.sh/main.sh: 1: /tmp/dune_cram_3f1eab_.cram.sh/64.sh: ./bar-bundle/opam/default/bin/bar: not found
-  [127]
+  I'm launching with patch bar v.3 !
   $ opam exec --root ./bar-bundle/opam -- bar
-  [ERROR] Command not found 'bar'
-  [127]
+  I'm launching with patch bar v.3 !
   $ test -d BAR && find BAR | sort
-  [1]
+  BAR
+  BAR/bin
+  BAR/bin/bar
+  BAR/bin/foo
   $ test -f BAR/bin/foo && BAR/bin/foo
-  [1]
+  I'm launching foo v.3 !
   $ test -f BAR/bin/bar && BAR/bin/bar
-  [1]
+  I'm launching with patch bar v.3 !
 
 Cleaning up
   $ rm -r BAR bar-bundle bar-bundle.tar.gz
-  rm: cannot remove 'BAR': No such file or directory
-  [1]
 
 
 ============================== Test 3 ==============================
@@ -625,22 +628,26 @@ wrapper.
   ================ Compile: installing packages                  ================
   
   Output is in $TESTCASE_ROOT/bar-bundle/compile.log
-  Compiling packages... 
-  
-  Something went wrong, see log in $TESTCASE_ROOT/bar-bundle/compile.log
-  [31]
+  Compiling packages... done
+  Cleaning up... done
+  Wrapper bar installed successfully.
+  Wrapper foo installed successfully.
 
   $ ./bar-bundle/opam/default/bin/foo
   I'm launching with patch foo v.4 !
   $ ./bar-bundle/opam/default/bin/bar
-  /tmp/dune_cram_3f1eab_.cram.sh/main.sh: 1: /tmp/dune_cram_3f1eab_.cram.sh/74.sh: ./bar-bundle/opam/default/bin/bar: not found
-  [127]
+  I'm launching with patch bar v.3 !
+  $ opam exec --root ./bar-bundle/opam -- bar
+  I'm launching with patch bar v.3 !
   $ test -d BAR && find BAR | sort
-  [1]
+  BAR
+  BAR/bin
+  BAR/bin/bar
+  BAR/bin/foo
   $ test -f BAR/bin/foo && BAR/bin/foo
-  [1]
+  I'm launching with patch foo v.4 !
   $ test -f BAR/bin/bar && BAR/bin/bar
-  [1]
+  I'm launching with patch bar v.3 !
 
 
 
