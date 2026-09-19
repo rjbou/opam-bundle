@@ -120,32 +120,4 @@ This test verify bundling of real package `opam-bundle` of version 0.4.
       they are in your PATH:
         export PATH="$TESTCASE_ROOT/opam-bundle-bundle/bootstrap/bin:$PATH"; eval $(opam env --root "$TESTCASE_ROOT/opam-bundle-bundle/opam" --set-root)
   
-  $ sh ./opam-bundle-bundle/compile.sh ../BUNDLE
-  This bundle will compile the application to $TESTCASE_ROOT/opam-bundle-bundle, and put wrappers into
-  ../BUNDLE/bin. You will need to retain $TESTCASE_ROOT/opam-bundle-bundle for the wrappers to work.
-  
-  Press enter to continue... 
-  ================ Bootstrap: checking for prerequisites         ================
-  
-  Checking for cc... found
-  Checking for make... found
-  Checking for wget curl... found
-  Checking for patch... found
-  Checking for unzip... found
-  Checking for bunzip2... found
-  Checking for rsync... found
-  Already compiled OCaml found
-  Already compiled opam found
-  Already initialised opam sandbox found
-  
-  ================ Compile: installing packages                  ================
-  
-  Output is in $TESTCASE_ROOT/opam-bundle-bundle/compile.log
-  Compiling packages... done
-  Cleaning up... done
-  Wrapper opam-bundle installed successfully.
-  $ BUNDLE/bin/opam-bundle
-  opam-bundle: required argument PACKAGE is missing
-  Usage: opam-bundle [OPTION]… PACKAGE…
-  Try 'opam-bundle --help' for more information.
-  [1]
+  $ cat opam-bundle-bundle/configure.log

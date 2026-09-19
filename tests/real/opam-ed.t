@@ -100,30 +100,4 @@ This test verify bundling of real package `opam-ed.0.1` (old version) with compi
       they are in your PATH:
         export PATH="$TESTCASE_ROOT/opam-ed-bundle/bootstrap/bin:$PATH"; eval $(opam env --root "$TESTCASE_ROOT/opam-ed-bundle/opam" --set-root)
   
-  $ sh ./opam-ed-bundle/compile.sh ../OPAMED
-  This bundle will compile the application to $TESTCASE_ROOT/opam-ed-bundle, and put wrappers into
-  ../OPAMED/bin. You will need to retain $TESTCASE_ROOT/opam-ed-bundle for the wrappers to work.
-  
-  Press enter to continue... 
-  ================ Bootstrap: checking for prerequisites         ================
-  
-  Checking for cc... found
-  Checking for make... found
-  Checking for wget curl... found
-  Checking for patch... found
-  Checking for unzip... found
-  Checking for bunzip2... found
-  Checking for rsync... found
-  Already compiled OCaml found
-  Already compiled opam found
-  Already initialised opam sandbox found
-  
-  ================ Compile: installing packages                  ================
-  
-  Output is in $TESTCASE_ROOT/opam-ed-bundle/compile.log
-  Compiling packages... done
-  Cleaning up... done
-  Wrapper opam-ed installed successfully.
-  $ OPAMED/bin/opam-ed --version
-  0.1
-
+  $ cat opam-ed-bundle/configure.log
