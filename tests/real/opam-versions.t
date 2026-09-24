@@ -3,15 +3,7 @@ a dumb package and repo, which needs resolution (solver). We test the bundle cre
 Note: to avoid recompiling an ocaml compiler for each bundle, it is compiled once and added by hand on
 each archive extract.
 
-Unsetting setup-ocaml variables
-  $ unset OPAMPRECISETRACKING
-  $ unset OPAMEXTERNALSOLVER
-Set some opam variables for the cram test
-  $ export OPAMNOENVNOTICE=1
-  $ export OPAMYES=1
-  $ export OPAMROOT=$PWD/OPAMROOT
-  $ export OPAMSTATUSLINE=never
-  $ export OPAMVERBOSE=-1
+  $ . ../env-vars
 Repo initial setup with two packages `foo`, `oof` and `bar` that depends on `foo` & `oof`.
   $ cat > compile << EOF
   > #!/bin/sh
@@ -89,14 +81,6 @@ Bar package.
   >  checksum: "sha256=$SHA"
   > }
   > EOF
-Opam setup
-  $ mkdir $OPAMROOT
-  $ opam init --bare ./REPO --no-setup --bypass-checks --disable-sandboxing
-  No configuration file found, using built-in defaults.
-  
-  <><> Fetching repository information ><><><><><><><><><><><><><><><><><><><><><>
-  [default] Initialised
-  $ opam switch create one --empty
 
 
   $ export REPO="--repository ./REPO --repository https://opam.ocaml.org"
@@ -208,7 +192,7 @@ opam version 2.0
         export PATH="$TESTCASE_ROOT/bar-bundle/bootstrap/bin:$PATH"; eval $(opam env --root "$TESTCASE_ROOT/bar-bundle/opam" --set-root)
   
   $ test -f bar-bundle/bootstrap/bin/opam
-  $ opam exec --root ./bar-bundle/opam -- bar
+  $ ./bar-bundle/opam/default/bin/bar
   I'm launching bar !
 
 Cleaning up
@@ -315,7 +299,7 @@ opam version 2.1
         export PATH="$TESTCASE_ROOT/bar-bundle/bootstrap/bin:$PATH"; eval $(opam env --root "$TESTCASE_ROOT/bar-bundle/opam" --set-root)
   
   $ test -f bar-bundle/bootstrap/bin/opam
-  $ opam exec --root ./bar-bundle/opam -- bar
+  $ ./bar-bundle/opam/default/bin/bar
   Fatal error: symlinks unsupported
   [99]
 
@@ -404,7 +388,7 @@ opam version 2.2
   [50]
   $ test -f bar-bundle/bootstrap/bin/opam
   [1]
-  $ opam exec --root ./bar-bundle/opam -- bar
+  $ ./bar-bundle/opam/default/bin/bar
   [ERROR] Opam has not been initialised, please run `opam init'
   [50]
 
@@ -487,7 +471,7 @@ opam version 2.3
   [50]
   $ test -f bar-bundle/bootstrap/bin/opam
   [1]
-  $ opam exec --root ./bar-bundle/opam -- bar
+  $ ./bar-bundle/opam/default/bin/bar
   [ERROR] Opam has not been initialised, please run `opam init'
   [50]
 
@@ -576,7 +560,7 @@ opam version 2.4
   [50]
   $ test -f bar-bundle/bootstrap/bin/opam
   [1]
-  $ opam exec --root ./bar-bundle/opam -- bar
+  $ ./bar-bundle/opam/default/bin/bar
   [ERROR] Opam has not been initialised, please run `opam init'
   [50]
 
@@ -665,7 +649,7 @@ opam version 2.5
   [50]
   $ test -f bar-bundle/bootstrap/bin/opam
   [1]
-  $ opam exec --root ./bar-bundle/opam -- bar
+  $ ./bar-bundle/opam/default/bin/bar
   [ERROR] Opam has not been initialised, please run `opam init'
   [50]
 
